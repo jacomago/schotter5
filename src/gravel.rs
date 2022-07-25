@@ -144,7 +144,7 @@ impl Gravel {
         let t_mod = self.t;
         for stone in &mut self.stones {
             if stone.cycles == 0.0 {
-                if t_mod - self.min_loop > 0 && random_f32() > self.motion {
+                if t_mod as i32 - self.min_loop as i32 > 0 && random_f32() > self.motion {
                     stone.cycles = self.smooth_factor * random_range(self.min_loop, t_mod) as f32;
                     stone.t = stone.cycles;
                     stone.init_noise(self.noise);
